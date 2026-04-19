@@ -4,4 +4,4 @@ Feature: Test Scenarios for Search functionality
     Given Open Google page
     When Input Car into search field
     And Click on search icon
-    Then Product results for Car are shown
+    Then Product results for Car  are shown
