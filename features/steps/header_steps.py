@@ -15,18 +15,15 @@ def click_cart(context):
 @when("Search for {search_query}")
 def search_product(context, search_query):
     context.driver.find_element(*SEARCH_FIELD).send_keys(search_query)
-    search_button = context.driver.find_element(*SEARCH_BTN)
-    context.driver.execute_script("arguments[0].scrollIntoView(true);",search_button)
-    context.driver.execute_script("arguments[0].click();", search_button)
-
-    sleep(7)
+    context.driver.find_element(*SEARCH_BTN).click()
+    sleep(10)
 
 
-@then("Verify header link container is shown")
-def verify_header_links(context):
-    e = context.driver.find_element(By.CSS_SELECTOR, "[class*='HeaderLinksContainer']")
-    print('\nHeader links container: ')
-    print(e)
+    @then("Verify header link container is shown")
+    def verify_header_links(context):
+        e = context.driver.find_element(By.CSS_SELECTOR, "[class*='HeaderLinksContainer']")
+        print('\nHeader links container: ')
+        print(e)
 
 
 @then("Verify {expected_amount} links are shown")
