@@ -7,3 +7,4 @@ from time import sleep
 def open_target_main(context):
     context.driver.get("https://www.target.com/")
     sleep(2)
+    context.app.main_page.open_main()
